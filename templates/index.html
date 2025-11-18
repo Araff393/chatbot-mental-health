@@ -1,20 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<!-- Wrapper agar layout tidak melebar -->
 <div class="app-wrapper">
 
+    <!-- Header -->
     <header class="chat-header">
-    <img src="/static/img/bot.png" class="bot-icon">
-    <h2>ChatBot Kesehatan Mental</h2>
-</header>
+        <img src="/static/img/bot.png" class="bot-icon bot-avatar">
+        <h2 class="chat-title">ChatBot Kesehatan Mental</h2>
+    </header>
 
+    <!-- Chat Window -->
+    <main id="chat-window" class="chat-window chat-container"></main>
 
-    <main id="chat-window" class="chat-window"></main>
-
-    <footer class="chat-input-area">
-        <input type="text" id="user-input" placeholder="Tulis pesan di sini...">
-        <button id="send-btn">Kirim</button>
-        <button id="clear-chat-btn" class="clear-btn">Bersihkan</button>
+    <!-- Input Area -->
+    <footer class="chat-input-area input-area">
+        <input 
+            type="text" 
+            id="user-input" 
+            placeholder="Tulis pesan di sini..." 
+            class="chat-input"
+            autocomplete="off"
+        >
+        
+        <div class="send-buttons">
+            <button id="send-btn" class="send-btn">Kirim</button>
+            <button id="clear-chat-btn" class="clear-btn">Bersihkan</button>
+        </div>
     </footer>
 
 </div>

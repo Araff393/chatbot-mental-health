@@ -225,3 +225,67 @@ body {
     0%, 80%, 100% { transform: scale(0); }
     40% { transform: scale(1); }
 }
+
+/* === MOBILE OPTIMIZATION === */
+
+@media (max-width: 600px) {
+
+    /* Header lebih compact */
+    header {
+        padding: 10px !important;
+    }
+
+    header h1 {
+        font-size: 1.2rem !important;
+    }
+
+    .bot-avatar {
+        width: 38px !important;
+        height: 38px !important;
+        margin-right: 8px !important;
+    }
+
+    /* Bubble chat */
+    .chat-bubble {
+        max-width: 85% !important;
+        font-size: 0.9rem !important;
+        padding: 10px 14px !important;
+        margin: 8px !important;
+    }
+
+    .chat-bubble.user {
+        margin-left: auto !important;
+    }
+
+    .chat-bubble.bot {
+        margin-right: auto !important;
+    }
+
+    /* Chat container */
+    .chat-container {
+        padding: 8px !important;
+        height: calc(100vh - 150px) !important;
+    }
+
+    /* Input area */
+    .input-area {
+        padding: 8px !important;
+        gap: 6px !important;
+    }
+
+    .input-area input {
+        font-size: 0.9rem !important;
+        padding: 10px !important;
+    }
+
+    .input-area button {
+        padding: 10px 16px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Button bersihkan */
+    .clear-btn {
+        padding: 10px 14px !important;
+        font-size: 0.9rem !important;
+    }
+}
