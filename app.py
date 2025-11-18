@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, jsonify
 from backend.crisis_detector import is_crisis
 from backend.ai_reply import generate_reply
@@ -27,4 +28,8 @@ def chat():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host="0.0.0.0", port=port)
+
+
