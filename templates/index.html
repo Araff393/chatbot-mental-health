@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="app-wrapper">
+
+    <header class="chat-header">
+    <img src="/static/img/bot.png" class="bot-icon">
+    <h2>ChatBot Kesehatan Mental</h2>
+</header>
+
+
+    <main id="chat-window" class="chat-window"></main>
+
+    <footer class="chat-input-area">
+        <input type="text" id="user-input" placeholder="Tulis pesan di sini...">
+        <button id="send-btn">Kirim</button>
+        <button id="clear-chat-btn" class="clear-btn">Bersihkan</button>
+    </footer>
+
+</div>
+
+{% endblock %}
