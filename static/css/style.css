@@ -1,4 +1,17 @@
-/* ===== Reset ===== */
+/* =============================================
+   GLOBAL RESET & VARIABLES
+================================================ */
+:root {
+    --primary: #103a7a;
+    --primary-soft: #1b4f9c;
+    --sidebar-bg: #f6f8fc;
+    --chat-bg: #f9fbfe;
+    --text-dark: #2d3a4b;
+    --text-light: #778399;
+    --border-soft: #e4e8f0;
+    --shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,168 +19,186 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #e4f3f3, #f8fbff);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--chat-bg);
     height: 100vh;
+    overflow: hidden;
 }
 
-/* ===== APP WRAPPER ===== */
-.app-wrapper {
-    width: 100%;
-    max-width: 480px;
+/* =============================================
+   LAYOUT GRID
+================================================ */
+.app-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
     height: 100vh;
-    background: #ffffff;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: auto;
+    max-width: 1400px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* =============================================
+   SIDEBAR
+================================================ */
+.sidebar {
+    background: var(--sidebar-bg);
+    padding: 26px 22px;
+    border-right: 1px solid var(--border-soft);
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ulbk-logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.sidebar-content {
+    margin-top: 10px;
+}
+
+.desc {
+    font-size: 0.87rem;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 18px;
+}
+
+.info-card {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.action-buttons {
     display: flex;
     flex-direction: column;
-
-    border-radius: 20px;
-    overflow: hidden;
-
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    gap: 14px; /* sebelumnya 10px → sekarang lebih lega */
+    margin-top: 25px; /* beri jarak dari info card */
+    padding: 0 5px;  /* beri sedikit ruang dari sisi kiri & kanan */
 }
 
-/* ===== HEADER (Calm gradient) ===== */
-.chat-header {
+/* Modern Icon Buttons */
+.btn-modern {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 18px;
-    background: linear-gradient(135deg, #96e6b3, #8ec5fc);
-    color: #0b3d2e;
-}
-
-.bot-icon {
-    width: 40px;
-    height: 40px;
+    gap: 12px;
+    padding: 14px 16px;
     border-radius: 12px;
-    border: 2px solid rgba(255,255,255,0.6);
+    font-weight: 600;
+    color: white;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.25s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.09);
 }
 
-/* === CLEAR CHAT BUTTON === */
-.clear-btn {
-    margin-left: auto;
-    background: rgba(255,255,255,0.45);
-    backdrop-filter: blur(4px);
-    padding: 6px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(237, 17, 17, 0.5);
-    font-size: 13px;
-    cursor: pointer;
-    transition: 0.2s;
-    color: #0b3d2e;
+.btn-modern:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
 }
 
-.clear-btn:hover {
-    background: rgba(255,255,255,0.7);
+/* WA Modern */
+.btn-wa-modern {
+    background: #23d366;
 }
 
+/* IG Modern – gradient style */
+.btn-ig-modern {
+    background: linear-gradient(135deg, #feda75, #d62976, #962fbf, #4f5bd5);
+}
 
-/* ===== CHAT WINDOW ===== */
+/* Buat Janji Modern */
+.btn-book-modern {
+    background: linear-gradient(135deg, #1a73e8, #0b5ed7);
+}
+
+/* ICON styling */
+.btn-modern svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+/* =============================================
+   CHAT INTERFACE
+================================================ */
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--chat-bg);
+}
+
+/* Header */
+.chat-header {
+    background: white;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.bot-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bot-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.chat-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.status {
+    font-size: 0.78rem;
+    color: #24c16b;
+}
+
+/* =============================================
+   CHAT WINDOW
+================================================ */
 .chat-window {
     flex: 1;
-    padding: 18px;
     overflow-y: auto;
-    background: #f3f9f9;
+    padding: 25px;
+    background: #f9fbff;
 }
 
-/* ===== MESSAGE BUBBLES ===== */
-.message {
-    max-width: 78%;
-    padding: 12px 16px;
-    margin-bottom: 14px;
-    border-radius: 18px;
-    font-size: 15px;
-    line-height: 1.4;
-    animation: fadeIn 0.25s ease-in;
-}
-
-/* User bubble */
-.message.user {
-    background: #8ec5fc;
-    color: #ffffff;
-    margin-left: auto;
-    border-bottom-right-radius: 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* Bot bubble (calm pastel) */
-.message.bot {
-    background: #ffffff;
-    border: 1px solid #d9ebeb;
-    color: #325e57;
-    border-bottom-left-radius: 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-/* ===== INPUT AREA ===== */
-.chat-input-area {
-    display: flex;
-    padding: 14px;
-    gap: 12px;
-    background: #ffffff;
-    border-top: 1px solid #d8e9e9;
-}
-
-#user-input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 14px;
-    border: 1px solid #cde7e7;
-    background: #f8fcfc;
-    font-size: 15px;
-    outline: none;
-    transition: 0.2s;
-}
-
-#user-input:focus {
-    border-color: #96e6b3;
-    box-shadow: 0 0 6px rgba(150, 230, 179, 0.35);
-}
-
-#send-btn {
-    padding: 12px 20px;
-    background: linear-gradient(135deg, #a1ffce, #faffd1);
-    border: none;
-    color: #1b3d2f;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-#send-btn:hover {
-    transform: scale(1.05);
-}
-
-/* ===== Animation ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== Mobile Responsive ===== */
-@media (max-width: 480px) {
-    body {
-        height: 100%;
-        display: block;
-    }
-
-    .app-wrapper {
-        height: 100vh;
-        max-width: 100%;
-        border-radius: 0;
-    }
-
-    #user-input, #send-btn {
-        font-size: 14px;
-    }
-}
-
-/* ===== BOT AVATAR ===== */
+/* Message wrapper */
 .message-wrapper {
     display: flex;
     align-items: flex-start;
@@ -178,114 +209,72 @@ body {
     justify-content: flex-end;
 }
 
+/* Avatar bot */
 .avatar-bot {
     width: 32px;
     height: 32px;
-    margin-right: 8px;
+    margin-right: 10px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.7);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* === Typing Indicator (AI sedang mengetik) === */
-.typing-indicator {
+/* Bubble message */
+.message {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    box-shadow: var(--shadow);
+}
+
+.message.bot {
+    background: white;
+    border: 1px solid var(--border-soft);
+    color: var(--text-dark);
+}
+
+.message.user {
+    background: var(--primary);
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+/* =============================================
+   INPUT AREA (Floating)
+================================================ */
+.input-area {
+    padding: 16px 22px;
+    background: white;
+    border-top: 1px solid var(--border-soft);
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 14px;
-    background: #ffffff;
-    padding: 10px 14px;
-    border-radius: 18px;
-    width: fit-content;
-    border: 1px solid #d9ebeb;
-    color: #325e57;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    gap: 10px;
 }
 
-/* Three bouncing dots */
-.typing-dot {
-    width: 6px;
-    height: 6px;
-    background: #7bbcaf;
+#user-input {
+    flex: 1;
+    padding: 14px 18px;
+    background: #f3f6fa;
+    border: 1px solid var(--border-soft);
+    border-radius: 28px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.btn-send {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    animation: typingBounce 1.4s infinite ease-in-out both;
+    background: var(--primary);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.typing-dot:nth-child(1) {
-    animation-delay: -0.32s;
-}
-.typing-dot:nth-child(2) {
-    animation-delay: -0.16s;
-}
-.typing-dot:nth-child(3) {
-    animation-delay: 0;
-}
-
-@keyframes typingBounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
-}
-
-/* === MOBILE OPTIMIZATION === */
-
-@media (max-width: 600px) {
-
-    /* Header lebih compact */
-    header {
-        padding: 10px !important;
-    }
-
-    header h1 {
-        font-size: 1.2rem !important;
-    }
-
-    .bot-avatar {
-        width: 38px !important;
-        height: 38px !important;
-        margin-right: 8px !important;
-    }
-
-    /* Bubble chat */
-    .chat-bubble {
-        max-width: 85% !important;
-        font-size: 0.9rem !important;
-        padding: 10px 14px !important;
-        margin: 8px !important;
-    }
-
-    .chat-bubble.user {
-        margin-left: auto !important;
-    }
-
-    .chat-bubble.bot {
-        margin-right: auto !important;
-    }
-
-    /* Chat container */
-    .chat-container {
-        padding: 8px !important;
-        height: calc(100vh - 150px) !important;
-    }
-
-    /* Input area */
-    .input-area {
-        padding: 8px !important;
-        gap: 6px !important;
-    }
-
-    .input-area input {
-        font-size: 0.9rem !important;
-        padding: 10px !important;
-    }
-
-    .input-area button {
-        padding: 10px 16px !important;
-        font-size: 0.9rem !important;
-    }
-
-    /* Button bersihkan */
-    .clear-btn {
-        padding: 10px 14px !important;
-        font-size: 0.9rem !important;
-    }
+.btn-send:hover {
+    background: var(--primary-soft);
 }

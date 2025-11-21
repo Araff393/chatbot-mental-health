@@ -1,33 +1,108 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<!-- Wrapper agar layout tidak melebar -->
-<div class="app-wrapper">
+<div class="app-container">
 
-    <!-- Header -->
-    <header class="chat-header">
-        <img src="/static/img/bot.png" class="bot-icon bot-avatar">
-        <h2 class="chat-title">ChatBot Kesehatan Mental</h2>
-    </header>
-
-    <!-- Chat Window -->
-    <main id="chat-window" class="chat-window chat-container"></main>
-
-    <!-- Input Area -->
-    <footer class="chat-input-area input-area">
-        <input 
-            type="text" 
-            id="user-input" 
-            placeholder="Tulis pesan di sini..." 
-            class="chat-input"
-            autocomplete="off"
-        >
-        
-        <div class="send-buttons">
-            <button id="send-btn" class="send-btn">Kirim</button>
-            <button id="clear-chat-btn" class="clear-btn">Bersihkan</button>
+    <!-- ===== SIDEBAR ULBK ===== -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/static/img/logo_ulbk.png" alt="Logo ULBK" class="ulbk-logo">
+            <h3>ULBK UNY</h3>
         </div>
-    </footer>
+
+        <div class="sidebar-content">
+
+            <p class="desc">
+                Unit Layanan Bimbingan dan Konseling Peduli UNY.<br>
+                Mendukung kesehatan mental & akademik mahasiswa.
+            </p>
+
+            <div class="info-card">
+                <div class="info-item">
+                    <span class="icon">🕒</span>
+                    <div>
+                        <strong>Senin – Kamis:</strong><br>
+                        08.00 – 15.00 WIB
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="icon">🕒</span>
+                    <div>
+                        <strong>Jumat:</strong><br>
+                        08.00 – 13.30 WIB
+                    </div>
+                </div>
+            </div>
+
+         <div class="action-buttons">
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6282329489495" target="_blank" class="btn-modern btn-wa-modern">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12 0a11.87 11.87 0 0 0-10.3 17.94L0 24l6.25-1.64A11.87 11.87 0 1 0 20.52 3.48ZM12 21.27a9.27 9.27 0 0 1-4.72-1.29l-.34-.2-3.71.97 1-3.62-.24-.35a9.27 9.27 0 1 1 8 4.49Zm5.09-6.93c-.28-.14-1.64-.81-1.89-.9s-.44-.14-.62.14-.71.9-.87 1.09-.32.21-.6.07a7.54 7.54 0 0 1-2.22-1.38 8.36 8.36 0 0 1-1.55-1.93c-.16-.27 0-.42.12-.58l.43-.5c.14-.17.21-.28.32-.48a.52.52 0 0 0 0-.48c-.07-.14-.62-1.49-.85-2s-.45-.47-.62-.48h-.53a1 1 0 0 0-.71.33 3 3 0 0 0-.92 2.24 5.33 5.33 0 0 0 1.11 2.82 12.26 12.26 0 0 0 4.67 4.16A15.54 15.54 0 0 0 16 15.6a2.63 2.63 0 0 0 1.1-1.72c.13-.29 0-.47-.23-.54Z"/>
+        </svg>
+        Chat WhatsApp
+    </a>
+
+    <!-- Instagram Button -->
+    <a href="https://www.instagram.com/ulbkpuny/" target="_blank" class="btn-modern btn-ig-modern">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2.2c3.2 0 3.6 0 4.9.1a5.6 5.6 0 0 1 1.9.4 3.7 3.7 0 0 1 2 2 5.6 5.6 0 0 1 .4 1.9c.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9a5.6 5.6 0 0 1-.4 1.9 3.7 3.7 0 0 1-2 2 5.6 5.6 0 0 1-1.9.4c-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1a5.6 5.6 0 0 1-1.9-.4 3.7 3.7 0 0 1-2-2 5.6 5.6 0 0 1-.4-1.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9a5.6 5.6 0 0 1 .4-1.9 3.7 3.7 0 0 1 2-2 5.6 5.6 0 0 1 1.9-.4C8.4 2.2 8.8 2.2 12 2.2m0-2.2C8.7 0 8.3 0 7 0.1a7.8 7.8 0 0 0-2.7.5 5.8 5.8 0 0 0-3.2 3.2 7.8 7.8 0 0 0-.5 2.7C0.1 8.3 0 8.7 0 12s0 3.7.1 5a7.8 7.8 0 0 0 .5 2.7 5.8 5.8 0 0 0 3.2 3.2 7.8 7.8 0 0 0 2.7.5c1.3.1 1.7.1 5 .1s3.7 0 5-.1a7.8 7.8 0 0 0 2.7-.5 5.8 5.8 0 0 0 3.2-3.2 7.8 7.8 0 0 0 .5-2.7c.1-1.3.1-1.7.1-5s0-3.7-.1-5a7.8 7.8 0 0 0-.5-2.7 5.8 5.8 0 0 0-3.2-3.2 7.8 7.8 0 0 0-2.7-.5C15.7 0 15.3 0 12 0Z"/>
+            <circle cx="18" cy="6" r="1.3"/>
+            <circle cx="12" cy="12" r="3.2"/>
+        </svg>
+        Instagram
+    </a>
+
+    <!-- Buat Janji Button -->
+    <a href="https://linktr.ee/ulbkpuny" target="_blank" class="btn-modern btn-book-modern">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.3 3 2 4.3 2 6v14c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3V6c0-1.7-1.3-3-3-3zm1 17c0 .5-.4 1-1 1H5c-.6 0-1-.5-1-1V10h16v10zm0-12H4V6c0-.5.4-1 1-1h1v2h2V5h8v2h2V5h1c.5 0 1 .5 1 1v2z"/>
+        </svg>
+        Buat Janji
+    </a>
+
+</div>
+
+        </div>
+    </aside>
+
+
+    <!-- ===== CHAT INTERFACE ===== -->
+    <main class="chat-interface">
+
+        <!-- HEADER -->
+        <header class="chat-header">
+            <div class="bot-info">
+                <img src="/static/img/bot.png" class="bot-avatar">
+                <div>
+                    <h2>ChatBot Kesehatan Mental</h2>
+                    <span class="status">🟢 Online • Siap mendengarkan</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- CHAT WINDOW (HARUS ADA id="chat-window") -->
+        <div id="chat-window" class="chat-window">
+            <div class="message bot">
+                Halo! Saya asisten virtual ULBK. Ada yang bisa saya bantu terkait perasaan atau akademikmu hari ini?
+            </div>
+        </div>
+
+        <!-- INPUT (Harus berisi ID yg benar) -->
+        <div class="input-area">
+            <button id="clear-chat-btn" class="btn-icon" title="Bersihkan Chat">🗑️</button>
+
+            <input 
+                id="user-input"
+                type="text"
+                placeholder="Ceritakan masalahmu di sini..."
+                autocomplete="off"
+            >
+
+            <button id="send-btn" class="btn-send">➤</button>
+        </div>
 
 </div>
 

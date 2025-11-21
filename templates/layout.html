@@ -2,17 +2,29 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Mobile Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ChatBot Kesehatan Mental</title>
 
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="icon" href="/static/img/favicon.ico">
+    <!-- Google Font (lebih clean dan modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <!-- CSS Utama -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/img/favicon.ico">
 </head>
+
 <body>
 
+    <!-- MAIN CONTENT (DARI index.html) -->
     {% block content %}
     {% endblock %}
 
+    <!-- SCRIPT (harus di bawah untuk optimal load) -->
     <script src="/static/js/ui.js"></script>
     <script src="/static/js/crisis.js"></script>
     <script src="/static/js/chat.js"></script>

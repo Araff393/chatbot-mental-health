@@ -1,3 +1,3 @@
 function showCrisisModal() {
-    alert("Peringatan Krisis:\nHarap segera hubungi hotline seperti 119.");
+    alert("Peringatan Krisis:\nHarap segera hubungi no +62 823-2948-9495.");
 }
